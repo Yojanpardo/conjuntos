@@ -28,7 +28,7 @@ public class conectar {
             }catch(ClassNotFoundException ex){
                 JOptionPane.showMessageDialog(null, "Error cargando el Driver", "Error fatal", JOptionPane.ERROR_MESSAGE);
             }
-            con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/conjunto","yojan","POLLOFRITO1030");
+            con=DriverManager.getConnection("jdbc:postgresql://localhost:5433/conjuntos","postgres","aeropuerto2522");
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Error al conectar la base de datos", "Error fatal", JOptionPane.ERROR_MESSAGE);
         }
