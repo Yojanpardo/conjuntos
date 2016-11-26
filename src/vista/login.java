@@ -106,13 +106,13 @@ public class login extends javax.swing.JFrame {
         if(obj.valide()==false){
             JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrectos","Error fatal",JOptionPane.ERROR_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(null, "Bienvenido");
             java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
                 new principal().setVisible(true);
                 }
             });
             this.dispose();
+            JOptionPane.showMessageDialog(null, "Bienvenido");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

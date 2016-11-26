@@ -19,7 +19,7 @@ public class DAOusuarios extends usuarios{
     }
     
     public boolean valide(){
-        String SQL="SELECT * FROM usuarios WHERE nombre='"+super.getUsuario()+"'AND pass='"+super.getPass()+"'";
+        String SQL="SELECT * FROM usurios WHERE nombre='"+super.getUsuario()+"'AND pass='"+super.getPass()+"'";
         if(conexion.validar(SQL)==false){
             return false;
         }else{
