@@ -9,19 +9,22 @@ package controlador;
  *
  * @author yojan
  */
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 /**
  *
  * @author yojan
  */
 public class conectar {
-    java.sql.Connection con;
-    java.sql.Statement st;
-    java.sql.ResultSet rs;
+    Connection con;
+    Statement st;
+    ResultSet rs;
     
-    public conectar(){
+    public Connection conectar(){
         try{
             try{
                 Class.forName("org.postgresql.Driver");
@@ -30,8 +33,13 @@ public class conectar {
             }
             con=DriverManager.getConnection("jdbc:postgresql://localhost:5433/conjuntos","postgres","aeropuerto2522");
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al conectar la base de datos", "Error fatal", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al conectar la base de datos "+ex, "Error fatal", JOptionPane.ERROR_MESSAGE);
         }
+        return con;
+    }
+    
+    Statement createStatement(){
+        throw new UnsupportedOperationException("No soportado jijijij");
     }
     
     public boolean validar(String sql){

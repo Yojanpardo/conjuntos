@@ -36,7 +36,7 @@ public class login extends javax.swing.JFrame {
         pass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Administración");
+        setTitle("Administración conjuntos 1.0");
         setLocation(new java.awt.Point(0, 0));
         setResizable(false);
 

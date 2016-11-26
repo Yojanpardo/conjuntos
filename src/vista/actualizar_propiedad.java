@@ -43,6 +43,7 @@ public class actualizar_propiedad extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Administración conjuntos 1.0");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
