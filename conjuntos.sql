@@ -3,7 +3,7 @@ CREATE DATABASE conjuntos;
 CREATE TABLE casas(
 	id SERIAL PRIMARY KEY NOT NULL,
 	direccion VARCHAR(30) NOT NULL,
-	valor_administracion VARCHAR NOT NULL
+	valor_administracion INTEGER NOT NULL
 );
 
 CREATE TABLE propietarios(
@@ -30,6 +30,7 @@ CREATE TABLE casas_propietarios(
 
 CREATE TABLE carteras(
 	id SERIAL PRIMARY KEY NOT NULL,
+	periodo VARCHAR (10) NOT NULL,
 	fecha_causacion DATE NOT NULL,
 	pago_oportuno DATE NOT NULL,
 	intereses FLOAT NOT NULL,
