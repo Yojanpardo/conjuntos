@@ -24,6 +24,19 @@ public class conectar {
     Statement st;
     ResultSet rs;
     
+    public conectar(){
+        try{
+            try{
+                Class.forName("org.postgresql.Driver");
+            }catch(ClassNotFoundException ex){
+                JOptionPane.showMessageDialog(null, "Error cargando el Driver", "Error fatal", JOptionPane.ERROR_MESSAGE);
+            }
+            con=DriverManager.getConnection("jdbc:postgresql://localhost:5433/conjuntos","postgres","aeropuerto2522");
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error al conectar la base de datos "+ex, "Error fatal", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     public Connection conectar(){
         try{
             try{
@@ -43,7 +56,7 @@ public class conectar {
     }
     
     public boolean validar(String sql){
-        java.sql.ResultSet hoja_resultado=null;
+        ResultSet hoja_resultado=null;
         try{
             st=con.createStatement();
             hoja_resultado=st.executeQuery(sql);
