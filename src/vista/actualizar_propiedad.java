@@ -5,6 +5,12 @@
  */
 package vista;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author yojan
@@ -14,6 +20,7 @@ public class actualizar_propiedad extends javax.swing.JFrame {
     /**
      * Creates new form actualizar_propiedad
      */
+    DefaultTableModel model;
     public actualizar_propiedad() {
         initComponents();
     }
@@ -32,11 +39,11 @@ public class actualizar_propiedad extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         numero_casa = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -52,31 +59,11 @@ public class actualizar_propiedad extends javax.swing.JFrame {
         jLabel2.setText("Casa N°:");
 
         jButton1.setText("Buscar");
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null}
-            },
-            new String [] {
-                "N°", "Cedula del propietario", "Valor Administración"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable2);
 
         jButton2.setText("Actualizar datos");
 
@@ -93,6 +80,19 @@ public class actualizar_propiedad extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         jMenu1.setText("File");
 
@@ -123,8 +123,15 @@ public class actualizar_propiedad extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -134,14 +141,7 @@ public class actualizar_propiedad extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton1))
                             .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -156,9 +156,9 @@ public class actualizar_propiedad extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(numero_casa)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
@@ -188,6 +188,29 @@ public class actualizar_propiedad extends javax.swing.JFrame {
         this.dispose();
         new principal().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String[] titulos={"casa #","cedula propietario","valor admon"};
+        String[] registros=new String[3];
+        String sql="SELECT casas.id,propietarios.cedula,casas.valor_administracion FROM casas,propietarios,casas_propietarios WHERE casas.id LIKE '"+numero_casa.getText()+"%' AND casas.id=casas_propietarios.casa_id AND propietarios.cedula=casas_propietarios.propietario_id";
+        model=new DefaultTableModel(null,titulos);
+        controlador.conectar con=new controlador.conectar();
+        Connection cn=con.conectar();
+        Statement stt;
+        try{
+            stt=cn.createStatement();
+            ResultSet rs=stt.executeQuery(sql);
+            while(rs.next()){
+                registros[0]=rs.getString("casas.id");
+                registros[1]=rs.getString("propietarios.cedula");
+                registros[3]=rs.getString("casas.valor_administracion");
+                model.addRow(registros);
+            }
+            jTable1.setModel(model);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex,"Error",JOptionPane.ERROR);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,9 +258,9 @@ public class actualizar_propiedad extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField numero_casa;
     // End of variables declaration//GEN-END:variables
 }

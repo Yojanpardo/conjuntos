@@ -37,6 +37,8 @@ public class nuevo_inmueble extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        numero_inmueble = new javax.swing.JTextField();
         direccion = new javax.swing.JTextField();
         administracion = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -57,6 +59,8 @@ public class nuevo_inmueble extends javax.swing.JFrame {
         jLabel3.setText("Dirección:");
 
         jLabel4.setText("Valor administración:");
+
+        jLabel2.setText("Numero del inmueble:");
 
         administracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,12 +99,16 @@ public class nuevo_inmueble extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                                 .addComponent(administracion, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(113, 113, 113)
-                                .addComponent(direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(numero_inmueble)
+                                    .addComponent(direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
                         .addGap(22, 22, 22))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3)
@@ -113,7 +121,10 @@ public class nuevo_inmueble extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(numero_inmueble)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(direccion)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -208,8 +219,9 @@ public class nuevo_inmueble extends javax.swing.JFrame {
         controlador.conectar conexion = new conectar();
         modelo.inmuebles obj = new modelo.inmuebles();
         obj.setDireccion(direccion.getText());
+        obj.setId(numero_inmueble.getText());
         obj.setAdmon(Integer.parseInt(administracion.getText()));
-        String ingresar = "INSERT INTO casas(direccion,valor_administracion) VALUES(?,?)";
+        String ingresar = "INSERT INTO casas(id,direccion,valor_administracion) VALUES(?,?,?)";
         Connection reg = conexion.conectar();
         try {
 
@@ -220,8 +232,9 @@ public class nuevo_inmueble extends javax.swing.JFrame {
             return true;
                  */
                 PreparedStatement pst = reg.prepareStatement(ingresar);
-                pst.setString(1, obj.getDireccion());
-                pst.setInt(2, obj.getAdmon());
+                pst.setString(1, obj.getId());
+                pst.setString(2, obj.getDireccion());
+                pst.setInt(3, obj.getAdmon());
                 int n = pst.executeUpdate();
                 if (n > 0) {
                     JOptionPane.showMessageDialog(null, "Datos almacenados con exito", " ", JOptionPane.PLAIN_MESSAGE);
@@ -275,6 +288,7 @@ public class nuevo_inmueble extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
@@ -283,5 +297,6 @@ public class nuevo_inmueble extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField numero_inmueble;
     // End of variables declaration//GEN-END:variables
 }

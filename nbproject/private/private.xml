@@ -3,17 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/actualizar_propiedad.java</file>
             <file>file:/D:/recuperar/Desktop/basessesese/src/vista/factura.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/modelo/DAOpropietarios.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/login.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/nuevo_propietario.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/modelo/DAOusuarios.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/causar_cuentas.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/nuevo_inmueble.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/actualizar_propiedad.java</file>
             <file>file:/D:/recuperar/Desktop/basessesese/src/vista/principal.java</file>
             <file>file:/D:/recuperar/Desktop/basessesese/src/vista/actualizar_propietario.java</file>
             <file>file:/D:/recuperar/Desktop/basessesese/src/modelo/usuarios.java</file>
-            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/login.java</file>
-            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/nuevo_propietario.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/modelo/propietarios.java</file>
             <file>file:/D:/recuperar/Desktop/basessesese/src/controlador/conectar.java</file>
-            <file>file:/D:/recuperar/Desktop/basessesese/src/modelo/DAOusuarios.java</file>
+            <file>file:/D:/recuperar/Desktop/basessesese/src/modelo/inmuebles.java</file>
             <file>file:/D:/recuperar/Desktop/basessesese/src/vista/estado_de_cuenta.java</file>
-            <file>file:/D:/recuperar/Desktop/basessesese/src/vista/nuevo_inmueble.java</file>
         </group>
     </open-files>
 </project-private>

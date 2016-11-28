@@ -1,7 +1,7 @@
 CREATE DATABASE conjuntos;
 
 CREATE TABLE casas(
-	id SERIAL PRIMARY KEY NOT NULL,
+	id VARCHAR(3) PRIMARY KEY NOT NULL,
 	direccion VARCHAR(30) NOT NULL,
 	valor_administracion INTEGER NOT NULL
 );
@@ -23,7 +23,7 @@ CREATE TABLE telefonos_propietarios(
 
 CREATE TABLE casas_propietarios(
 	fecha_asignacion DATE NOT NULL,
-	casa_id INTEGER NOT NULL REFERENCES casas(id),
+	casa_id VARCHAR(3) NOT NULL REFERENCES casas(id),
 	propietario_id VARCHAR(11) NOT NULL REFERENCES propietarios(cedula),
 	PRIMARY KEY (casa_id,propietario_id)
 );
@@ -34,7 +34,7 @@ CREATE TABLE carteras(
 	fecha_causacion DATE NOT NULL,
 	pago_oportuno DATE NOT NULL,
 	intereses FLOAT NOT NULL,
-	casa_id INTEGER NOT NULL REFERENCES casas(id)
+	casa_id VARCHAR(3) NOT NULL REFERENCES casas(id)
 );
 
 CREATE TABLE facturas(

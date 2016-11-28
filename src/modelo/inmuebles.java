@@ -10,7 +10,7 @@ package modelo;
  * @author yojan
  */
 public class inmuebles {
-    private String direccion;
+    private String direccion,id;
     private int admon;
     
     public void setDireccion(String direccion){
@@ -19,6 +19,13 @@ public class inmuebles {
     
     public String getDireccion(){
         return direccion;
+    }
+    public void setId(String id){
+        this.id=id;
+    }
+    
+    public String getId(){
+        return id;
     }
     
     public void setAdmon(int admon){

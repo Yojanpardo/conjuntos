@@ -45,8 +45,6 @@ public class nuevo_propietario extends javax.swing.JFrame {
         segundo_apellido = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         documento = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        propiedad = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         telefono = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -87,14 +85,6 @@ public class nuevo_propietario extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Propiedad asignada:");
-
-        propiedad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                propiedadActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("Telefono");
 
         telefono.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +117,7 @@ public class nuevo_propietario extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/assets/check-mark.png"))); // NOI18N
         jMenuItem1.setText("Panel principal");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +126,7 @@ public class nuevo_propietario extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/assets/exit.png"))); // NOI18N
         jMenuItem2.setText("salir");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,12 +166,10 @@ public class nuevo_propietario extends javax.swing.JFrame {
                                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel3)
                                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(propiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(documento, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(primer_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(segundo_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,10 +209,6 @@ public class nuevo_propietario extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(propiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -233,7 +219,7 @@ public class nuevo_propietario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addGap(19, 19, 19))
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -247,10 +233,6 @@ public class nuevo_propietario extends javax.swing.JFrame {
     private void documentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_documentoActionPerformed
-
-    private void propiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_propiedadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_propiedadActionPerformed
 
     private void telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoActionPerformed
         // TODO add your handling code here:
@@ -362,7 +344,6 @@ public class nuevo_propietario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
@@ -372,7 +353,6 @@ public class nuevo_propietario extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField primer_apellido;
     private javax.swing.JTextField primer_nombre;
-    private javax.swing.JTextField propiedad;
     private javax.swing.JTextField segundo_apellido;
     private javax.swing.JTextField segundo_nombre;
     private javax.swing.JTextField telefono;
